@@ -31,7 +31,7 @@ def upload(request):
                     docfile=ContentFile(temp_doc.read(), hashlib.md5(temp_doc.read()).hexdigest() + '.png'))
                 newdoc.save()
                 return HttpResponseRedirect(reverse('list'))
-            elif request.POST['docfile']:
+            elif request.FILES['docfile']:
                 temp_doc = request.FILES['docfile']
                 _, extension = str(temp_doc).split('.')
                 newdoc = Document(
@@ -57,6 +57,5 @@ def get_image(request, hash):
     if request.method == 'GET':
         width = request.GET.get('width')
         height = request.GET.get('height')
-        print(width, height)
     return render(request, 'single_image.html',
                   {'image': hash, 'MEDIA_URL': MEDIA_URL, 'height': height, 'width': width})
