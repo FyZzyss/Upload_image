@@ -28,4 +28,6 @@
 
 4) Установить Django командой `pip install django`
 
-5) Запустить локальный сервер командой `python3 test_django/manage.py runserver`
+5) Установить Pillow командой `pip install pillow`
+
+6) Запустить локальный сервер командой `python3 test_django/manage.py runserver`
